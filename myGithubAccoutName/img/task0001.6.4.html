@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>用两种不同的方式来实现一个三列布局，其中左侧和右侧的部分宽度固定，中间部分宽度随浏览器宽度的变化而自适应变化</title>
+<<style type="text/css">
+/*实现三列布局方法1:利用flex*/
+.div1{
+    display:flex;
+    height:100px;
+}
+.divA{
+    width:200px;
+    height:inherit;
+    background-color:red;
+}
+.divB{
+    flex:1;
+    height:inherit;
+    background-color:blue;
+}
+.divC{
+    width:200px;
+    height:inherit;
+    background-color:yellow;
+}
+/*实现三列布局方法2：利用float*/
+.div2{
+    height:100px;
+}
+.divA{
+    width:200px;
+    float:left;
+    height:inherit;
+    background-color:red;
+}
+.divB{
+    margin-left:200px;
+    margin-right:200px;
+    height:inherit;
+    background-color:blue;
+}
+.divC{
+    width:200px;
+    float:right;
+    height:inherit;
+    background-color:yellow;
+}
+</style>
+</head>
+<body>
+<div>
+    <p>实现三列布局方法1:利用flex</p>
+</div>
+<div class="div1">
+    <div class="divA">第一列</div>
+    <div class="divB">第二列</div>
+    <div class="divC">第三列</div>
+</div>
+<div>
+    <p>实现三列布局方法2：利用float</p>
+</div>
+<div class="div2">
+        <!--这里要注意一下盒子的顺序，第三列要排到第二位，不然会被挤到下一列-->
+        <!--利用左右浮动来进行布局我是考虑到的，但是盒子顺序不对会导致布局错误的原因我还没有找到-->
+        <div class="divA">第一列</div>
+        <div class="divC">第三列</div>
+        <div class="divB">第二列</div>
+</div>
+</body>
+</html>
